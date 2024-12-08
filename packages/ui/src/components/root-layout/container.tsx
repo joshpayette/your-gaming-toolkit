@@ -8,7 +8,7 @@ import {
   MenuItems,
 } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { CONFIG } from '@ygt/toolkits/yourgamingtoolkit';
+import { CONFIG } from '@repo/app-toolkit-config/yourgamingtoolkit'
 import { cn } from '@repo/ui/lib/classnames';
 
 const user = {
@@ -49,6 +49,8 @@ export function Container({ children }: { children: React.ReactNode }) {
               <div className="ui-hidden sm:-ui-my-px sm:ui-ml-6 sm:ui-flex sm:ui-space-x-8">
                 {Object.keys(CONFIG.NAV_ITEMS).map((key) => {
                   const item = CONFIG.NAV_ITEMS[key];
+                  if(!item) return null
+                  console.error(`Missing item for key: ${key}`)
                   const current = false; // TODO
 
                   return (
@@ -131,6 +133,7 @@ export function Container({ children }: { children: React.ReactNode }) {
           <div className="ui-space-y-1 ui-pb-3 ui-pt-2">
             {Object.keys(CONFIG.NAV_ITEMS).map((key) => {
               const item = CONFIG.NAV_ITEMS[key];
+              if(!item) return null
               const current = false; // TODO
 
               return (

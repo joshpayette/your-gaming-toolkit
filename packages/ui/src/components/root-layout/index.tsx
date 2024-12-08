@@ -1,5 +1,5 @@
 import 'react-toastify/dist/ReactToastify.min.css';
-import '@ygt/ui/styles.css';
+import '@repo/ui/styles.css';
 
 import { type Viewport } from 'next';
 import { Inter } from 'next/font/google';
@@ -31,7 +31,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
       <body className={cn(`ui-h-full ui-antialiased`, inter.className)}>
         <PreloadResources />
         <Providers>
-          <ToastContainer pauseOnFocusLoss={false} theme="dark" />
+          {/* <ToastContainer pauseOnFocusLoss={false} theme="dark" /> */}
           <Container>{children}</Container>
         </Providers>
       </body>

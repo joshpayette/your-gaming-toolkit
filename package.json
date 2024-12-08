@@ -6,16 +6,11 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "clean": "turbo clean",
-    "db": "pnpm --filter @repo/db",
-    "ui": "pnpm --filter @repo/ui ui",
-    "web": "pnpm --filter web",
-    "prepare": "husky"
+    "clean": "turbo clean"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
-    "husky": "^9.1.7",
     "prettier": "^3.2.5",
     "turbo": "^2.3.3",
     "typescript": "5.5.4"
