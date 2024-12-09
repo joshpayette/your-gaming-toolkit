@@ -10,12 +10,11 @@
   "exports": {
     "./styles.css": "./dist/index.css",
     "./postcss.config": "./postcss.config.mjs",
-    "./components/*": [
-      "./src/components/*.tsx",
-      "./src/components/*.ts"
-    ],
     "./components/root-layout": [
       "./src/components/root-layout/index.tsx"
+    ],
+    "./components/card": [
+      "./src/components/card/index.tsx"
     ],
     "./lib/*": [
       "./src/lib/*.ts"
@@ -49,11 +48,15 @@
     "react-toastify": "10.0.6"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
     "@repo/app-toolkit-config": "workspace:*",
     "@repo/eslint-config": "workspace:*",
     "@repo/jest-presets": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
