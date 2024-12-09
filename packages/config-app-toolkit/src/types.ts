@@ -1,14 +1,12 @@
 import { type ReactNode } from 'react'
 
-interface NavItem {
-  label: string;
-  description: string;
-  href: string;
-  icon: ReactNode;
-}
-
 export interface AppConfig {
-  NAV_ITEMS: Record<string, NavItem>;
+  NAV_ITEMS: Record<string, {
+    label: string;
+    description: string;
+    href: string;
+    icon: ReactNode;
+  }>;
   SITE_TITLE: string;
   SITE_DESCRIPTION: string;
   URL_CHANGELOG: string | undefined;
