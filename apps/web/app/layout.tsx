@@ -1,10 +1,29 @@
-import { RootLayout } from '@repo/ui/components/root-layout'
-import "@repo/ui/styles.css"
+import '@mantine/core/styles.css';
+import { HeaderMenu } from "./header";
 
-export default async function Layout({
+import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
+
+export const metadata = {
+  title: 'My Mantine app',
+  description: 'I have followed setup instructions carefully',
+};
+
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <RootLayout>{children}</RootLayout>;
+  return (
+    <html lang="en" {...mantineHtmlProps}>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider>
+          <HeaderMenu />
+          {children}
+          </MantineProvider>
+      </body>
+    </html>
+  );
 }
