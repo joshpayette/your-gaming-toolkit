@@ -1,44 +1,37 @@
 {
   "name": "@repo/ui",
   "version": "0.0.0",
-  "sideEffects": [
-    "**/*.css"
-  ],
+  "sideEffects": false,
   "files": [
-    "dist"
+    "dist/**"
   ],
   "exports": {
-    "./styles.css": "./dist/index.css",
-    "./postcss.config": "./postcss.config.mjs",
-    "./components/root-layout": [
-      "./src/components/root-layout/index.tsx"
-    ],
-    "./components/card": [
-      "./src/components/card/index.tsx"
-    ],
-    "./lib/*": [
-      "./src/lib/*.ts"
-    ]
+    "./counter-button": {
+      "types": "./src/counter-button/index.tsx",
+      "require": "./dist/counter-button/index.js",
+      "import": "./dist/counter-button/index.mjs"
+    },
+    "./link": {
+      "types": "./src/link/index.tsx",
+      "require": "./dist/link/index.js",
+      "import": "./dist/link/index.mjs"
+    }
   },
-  "license": "MIT",
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint src/",
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
-    "type-check": "tsc --noEmit",
     "test": "jest"
-  },
-  "peerDependencies": {
-    "react": "19.0.0"
   },
   "jest": {
     "preset": "@repo/jest-presets/browser"
   },
+  "peerDependencies": {
+    "react": "19.0.0"
+  },
   "dependencies": {
-    "@headlessui/react": "^2.2.0",
-    "@heroicons/react": "^2.2.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "2.1.1",
     "framer-motion": "11.3.2",
     "next": "15.0.3",
     "next-auth": "4.24.11",
@@ -54,18 +47,14 @@
     "@repo/app-toolkit-config": "workspace:*",
     "@repo/eslint-config": "workspace:*",
     "@repo/jest-presets": "workspace:*",
-    "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@jest/globals": "^29.7.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
-    "autoprefixer": "^10.4.18",
     "jest": "^29.7.0",
-    "postcss": "^8.4.35",
-    "tailwind-merge": "2.0.0",
-    "tailwindcss": "^3.4.1",
+    "tsup": "^8.0.2",
     "typescript": "5.5.4"
   }
 }

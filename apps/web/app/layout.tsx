@@ -1,10 +1,13 @@
-import { RootLayout } from '@repo/ui/components/root-layout'
-import "@repo/ui/styles.css"
+import "./styles.css";
 
-export default async function Layout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
-  return <RootLayout>{children}</RootLayout>;
+}): JSX.Element {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
 }
