@@ -15,6 +15,11 @@
       "types": "./src/link/index.tsx",
       "require": "./dist/link/index.js",
       "import": "./dist/link/index.mjs"
+    },
+    "./root-layout": {
+      "types": "./src/root-layout/index.tsx",
+      "require": "./dist/src/root-layout/index.js",
+      "import": "./dist/src/root-layout/index.mjs"
     }
   },
   "scripts": {
@@ -72,6 +77,7 @@
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
+    "esbuild-css-modules-plugin": "^3.1.2",
     "jest": "^29.7.0",
     "postcss": "^8.4.49",
     "postcss-preset-mantine": "^1.17.0",
