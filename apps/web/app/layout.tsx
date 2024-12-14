@@ -1,6 +1,5 @@
 import '@mantine/core/styles.css';
 import { HeaderMenu } from "./header";
-
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
 
 export const metadata = {
