@@ -6,7 +6,7 @@
     "react": "19.0.0"
   },
   "devDependencies": {
-    "@types/react": "^19.0.0"
+    "@types/react": "19.0.1"
   },
   "exports": {
     "./yourgamingtoolkit": "./src/yourgamingtoolkit.config.ts",

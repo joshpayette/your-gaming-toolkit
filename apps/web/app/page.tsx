@@ -1,4 +1,5 @@
 import { log } from '@repo/logger'
+import { type JSX } from 'react'
 
 export const metadata = {
   title: "Store | Kitchen Sink",
