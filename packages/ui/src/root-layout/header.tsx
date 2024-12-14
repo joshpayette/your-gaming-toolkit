@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { IconChevronDown } from '@tabler/icons-react';
 import { Burger, Center, Container, Group, Menu } from '@mantine/core';
@@ -14,8 +14,8 @@ const links = [
       { link: '/docs', label: 'Documentation' },
       { link: '/resources', label: 'Resources' },
       { link: '/community', label: 'Community' },
-      { link: '/blog', label: 'Blog' },
-    ],
+      { link: '/blog', label: 'Blog' }
+    ]
   },
   { link: '/about', label: 'About' },
   { link: '/pricing', label: 'Pricing' },
@@ -25,27 +25,32 @@ const links = [
     links: [
       { link: '/faq', label: 'FAQ' },
       { link: '/demo', label: 'Book a demo' },
-      { link: '/forums', label: 'Forums' },
-    ],
-  },
+      { link: '/forums', label: 'Forums' }
+    ]
+  }
 ];
 
-export function HeaderMenu() {
+export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
 
-  const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
+  const items = links.map(link => {
+    const menuItems = link.links?.map(item => (
       <Menu.Item key={item.link}>{item.label}</Menu.Item>
     ));
 
     if (menuItems) {
       return (
-        <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
+        <Menu
+          key={link.label}
+          trigger="hover"
+          transitionProps={{ exitDuration: 0 }}
+          withinPortal
+        >
           <Menu.Target>
             <a
               href={link.link}
               className={classes.link}
-              onClick={(event) => event.preventDefault()}
+              onClick={event => event.preventDefault()}
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
@@ -63,7 +68,7 @@ export function HeaderMenu() {
         key={link.label}
         href={link.link}
         className={classes.link}
-        onClick={(event) => event.preventDefault()}
+        onClick={event => event.preventDefault()}
       >
         {link.label}
       </a>
