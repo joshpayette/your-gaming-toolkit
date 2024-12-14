@@ -1,6 +1,12 @@
 {
   "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "prisma.prisma",
     "yoavbls.pretty-ts-errors",
-    "biomejs.biome"
+    "adpyke.vscode-sql-formatter",
+    "aaron-bond.better-comments",
+    "vunguyentuan.vscode-css-variables",
+    "vunguyentuan.vscode-postcss"
   ]
 }
