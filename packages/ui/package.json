@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ui",
+  "name": "@ygt/ui",
   "version": "0.0.0",
   "type": "module",
   "exports": {
@@ -21,7 +21,7 @@
     "dev": "pnpm build --watch"
   },
   "jest": {
-    "preset": "@repo/jest-presets/browser"
+    "preset": "@ygt/jest-presets/browser"
   },
   "peerDependencies": {
     "react": "19.0.0"
@@ -61,10 +61,10 @@
   "devDependencies": {
     "@asn.aeb/esbuild-css-modules-plugin": "^0.1.9",
     "@jest/globals": "^29.7.0",
-    "@repo/app-toolkit-config": "workspace:*",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/jest-presets": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@ygt/app-toolkit-config": "workspace:*",
+    "@ygt/eslint-config": "workspace:*",
+    "@ygt/jest-presets": "workspace:*",
+    "@ygt/typescript-config": "workspace:*",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",

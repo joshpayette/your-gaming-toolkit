@@ -1,5 +1,5 @@
 import '@mantine/core/styles.css';
-import { RootLayout } from '@repo/ui/root-layout';
+import { RootLayout } from '@ygt/ui/root-layout';
 
 export const metadata = {
   title: 'My Mantine app',

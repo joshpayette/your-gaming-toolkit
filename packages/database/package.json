@@ -1,5 +1,5 @@
 {
-  "name": "@repo/db",
+  "name": "@ygt/db",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
@@ -14,7 +14,7 @@
     "@prisma/client": "6.0.1"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@ygt/typescript-config": "workspace:*",
     "@types/node": "20",
     "prisma": "5.22.0",
     "typescript": "5.5.4"

@@ -26,7 +26,7 @@ importers:
 
   apps/remnant2toolkit:
     dependencies:
-      '@repo/ui':
+      '@ygt/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -39,12 +39,6 @@ importers:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/config-eslint
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/config-typescript
       '@types/node':
         specifier: ^20
         version: 20.17.6
@@ -54,6 +48,12 @@ importers:
       '@types/react-dom':
         specifier: 19.0.2
         version: 19.0.2(@types/react@19.0.1)
+      '@ygt/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/config-eslint
+      '@ygt/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/config-typescript
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -99,12 +99,6 @@ importers:
       '@mantine/tiptap':
         specifier: ^7.15.0
         version: 7.15.0(@mantine/core@7.15.0(@mantine/hooks@7.15.0(react@19.0.0))(@types/react@19.0.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@mantine/hooks@7.15.0(react@19.0.0))(@tiptap/extension-link@2.10.3(@tiptap/core@2.10.3(@tiptap/pm@2.10.3))(@tiptap/pm@2.10.3))(@tiptap/react@2.10.3(@tiptap/core@2.10.3(@tiptap/pm@2.10.3))(@tiptap/pm@2.10.3)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@repo/logger':
-        specifier: workspace:*
-        version: link:../../packages/logger
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@tabler/icons-react':
         specifier: ^3.24.0
         version: 3.24.0(react@19.0.0)
@@ -120,6 +114,12 @@ importers:
       '@tiptap/starter-kit':
         specifier: ^2.10.3
         version: 2.10.3
+      '@ygt/logger':
+        specifier: workspace:*
+        version: link:../../packages/logger
+      '@ygt/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       dayjs:
         specifier: ^1.11.13
         version: 1.11.13
@@ -139,12 +139,6 @@ importers:
         specifier: '2'
         version: 2.14.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/config-eslint
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/config-typescript
       '@types/node':
         specifier: ^20
         version: 20.17.6
@@ -154,6 +148,12 @@ importers:
       '@types/react-dom':
         specifier: 19.0.2
         version: 19.0.2(@types/react@19.0.1)
+      '@ygt/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/config-eslint
+      '@ygt/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/config-typescript
       postcss:
         specifier: ^8.4.49
         version: 8.4.49
@@ -234,12 +234,12 @@ importers:
         specifier: 6.0.1
         version: 6.0.1(prisma@5.22.0)
     devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../config-typescript
       '@types/node':
         specifier: '20'
         version: 20.17.6
+      '@ygt/typescript-config':
+        specifier: workspace:*
+        version: link:../config-typescript
       prisma:
         specifier: 5.22.0
         version: 5.22.0
@@ -252,18 +252,18 @@ importers:
       '@jest/globals':
         specifier: ^29.7.0
         version: 29.7.0
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../config-eslint
-      '@repo/jest-presets':
-        specifier: workspace:*
-        version: link:../config-jest
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../config-typescript
       '@types/node':
         specifier: ^20.11.24
         version: 20.17.6
+      '@ygt/eslint-config':
+        specifier: workspace:*
+        version: link:../config-eslint
+      '@ygt/jest-presets':
+        specifier: workspace:*
+        version: link:../config-jest
+      '@ygt/typescript-config':
+        specifier: workspace:*
+        version: link:../config-typescript
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.17.6)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@types/node@20.17.6)(typescript@5.5.4))
@@ -373,18 +373,6 @@ importers:
       '@jest/globals':
         specifier: ^29.7.0
         version: 29.7.0
-      '@repo/app-toolkit-config':
-        specifier: workspace:*
-        version: link:../config-app-toolkit
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../config-eslint
-      '@repo/jest-presets':
-        specifier: workspace:*
-        version: link:../config-jest
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../config-typescript
       '@rollup/plugin-typescript':
         specifier: ^11.1.6
         version: 11.1.6(rollup@4.28.1)(tslib@2.8.1)(typescript@5.5.4)
@@ -400,6 +388,18 @@ importers:
       '@types/react-dom':
         specifier: 19.0.2
         version: 19.0.2(@types/react@19.0.1)
+      '@ygt/app-toolkit-config':
+        specifier: workspace:*
+        version: link:../config-app-toolkit
+      '@ygt/eslint-config':
+        specifier: workspace:*
+        version: link:../config-eslint
+      '@ygt/jest-presets':
+        specifier: workspace:*
+        version: link:../config-jest
+      '@ygt/typescript-config':
+        specifier: workspace:*
+        version: link:../config-typescript
       esbuild-plugin-class-modules:
         specifier: ^2.1.9
         version: 2.1.9

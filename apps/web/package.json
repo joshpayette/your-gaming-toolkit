@@ -24,8 +24,8 @@
     "@mantine/nprogress": "^7.15.0",
     "@mantine/spotlight": "^7.15.0",
     "@mantine/tiptap": "^7.15.0",
-    "@repo/logger": "workspace:*",
-    "@repo/ui": "workspace:*",
+    "@ygt/logger": "workspace:*",
+    "@ygt/ui": "workspace:*",
     "@tabler/icons-react": "^3.24.0",
     "@tiptap/extension-link": "^2.10.3",
     "@tiptap/pm": "^2.10.3",
@@ -39,8 +39,8 @@
     "recharts": "2"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@ygt/eslint-config": "workspace:*",
+    "@ygt/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
