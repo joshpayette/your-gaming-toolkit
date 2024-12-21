@@ -1,8 +1,8 @@
 import '@mantine/core/styles.css';
-import { Header } from './header';
 
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
 import { ThemeProvider } from './theme-provider';
+import { Layout } from './layout';
 
 export function YGTRootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,8 +12,7 @@ export function YGTRootLayout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <ThemeProvider>
-          <Header />
-          {children}
+          <Layout>{children}</Layout>
         </ThemeProvider>
       </body>
     </html>

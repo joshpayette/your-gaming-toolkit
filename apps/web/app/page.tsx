@@ -8,5 +8,5 @@ export const metadata = {
 export default function Store(): JSX.Element {
   log('Hey! This is the Store page.');
 
-  return <p>Page</p>;
+  return <p>Page page page 23455</p>;
 }
