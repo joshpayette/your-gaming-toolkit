@@ -4,6 +4,7 @@ import { IconChevronDown } from '@tabler/icons-react';
 import { Burger, Center, Container, Group, Menu } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './header.module.css';
+import { ColorSchemeToggle } from '../color-scheme-toggle';
 
 const links = [
   { link: '/about', label: 'Features' },
@@ -83,6 +84,7 @@ export function Header() {
           <Group gap={5} visibleFrom="sm">
             {items}
           </Group>
+          <ColorSchemeToggle />
           <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="sm" />
         </div>
       </Container>

@@ -2,19 +2,19 @@ import '@mantine/core/styles.css';
 import { Header } from './header';
 
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
-import { Providers } from './Providers';
+import { ThemeProvider } from './theme-provider';
 
-export function RootLayout({ children }: { children: React.ReactNode }) {
+export function YGTRootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" {...mantineHtmlProps}>
+    <html lang="en" {...mantineHtmlProps} data-mantine-color-scheme="dark">
       <head>
         <ColorSchemeScript />
       </head>
       <body>
-        <Providers>
+        <ThemeProvider>
           <Header />
           {children}
-        </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );
