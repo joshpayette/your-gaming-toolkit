@@ -1,11 +1,15 @@
 'use client';
 
-import { MantineProvider, type MantineThemeOverride } from '@mantine/core';
-import { mantineTheme } from '../themes/purple';
+import { MantineProvider } from '@mantine/core';
+import { shadcnCssVariableResolver, shadcnTheme } from '../themes/purple';
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
-    <MantineProvider defaultColorScheme="dark" theme={mantineTheme}>
+    <MantineProvider
+      defaultColorScheme="dark"
+      theme={shadcnTheme}
+      cssVariablesResolver={shadcnCssVariableResolver}
+    >
       {children}
     </MantineProvider>
   );

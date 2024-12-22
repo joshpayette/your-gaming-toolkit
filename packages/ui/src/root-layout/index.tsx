@@ -1,8 +1,17 @@
 import '@mantine/core/styles.css';
+import './index.module.css';
+import '../themes/themes.css';
 
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
 import { ThemeProvider } from './theme-provider';
-import { Layout } from './layout';
+import { Header } from './header';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter'
+});
 
 export function YGTRootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,9 +19,10 @@ export function YGTRootLayout({ children }: { children: React.ReactNode }) {
       <head>
         <ColorSchemeScript />
       </head>
-      <body>
+      <body className={inter.className}>
         <ThemeProvider>
-          <Layout>{children}</Layout>
+          <Header />
+          {children}
         </ThemeProvider>
       </body>
     </html>
