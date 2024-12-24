@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.image {
+  margin-right: 8px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1rem;
+  font-size: var(--mantine-font-size-md);
+  font-weight: 900;
+}
+
+.accentText {
+  color: var(--mantine-primary-color-5);
+}
+
+.dotCom {
+  font-size: var(--mantine-font-size-xs);
+  font-weight: 400;
+  color: light-dark(var(--mantine-color-light-3), var(--mantine-color-dark-3));
+}
