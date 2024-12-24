@@ -1,5 +1,5 @@
 import '@mantine/core/styles.css';
-import './index.module.css';
+import classes from './index.module.css';
 import '../themes/themes.css';
 
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
@@ -19,7 +19,7 @@ export function YGTRootLayout({ children }: { children: React.ReactNode }) {
       <head>
         <ColorSchemeScript />
       </head>
-      <body className={inter.className}>
+      <body className={(inter.className, classes.page)}>
         <ThemeProvider>
           <Header />
           {children}

@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['@ygt/ui'],
+  output: 'standalone',
   eslint: {
     ignoreDuringBuilds: true
   },
