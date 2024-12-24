@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   web:
     container_name: web
@@ -11,6 +9,7 @@ services:
       - 3000:3000
     networks:
       - ygt_network
+
   remnant2toolkit:
     container_name: remnant2toolkit
     build:
@@ -22,8 +21,28 @@ services:
     networks:
       - ygt_network
 
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - 3310:3306
+    networks:
+      - ygt_network
+    volumes:
+      - mysql_data:/var/lib/mysql
+
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 networks:
   ygt_network:
     external: true
+
+# Define the volume for MySQL data
+volumes:
+  mysql_data:
