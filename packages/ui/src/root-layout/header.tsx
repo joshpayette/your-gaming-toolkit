@@ -34,8 +34,8 @@ import { Logo } from '../logo';
 const mockdata = [
   {
     icon: IconCode,
-    title: 'Open source',
-    description: 'This Pokémon’s cry is very loud and distracting'
+    title: 'Remnant 2',
+    description: 'Build tools, item tracking, iten interactions, and more!'
   },
   {
     icon: IconCoin,
@@ -109,16 +109,16 @@ export function Header() {
                 <a href="#" className={classes.link}>
                   <Center inline>
                     <Box component="span" mr={5}>
-                      Features
+                      Games
                     </Box>
-                    <IconChevronDown size={16} color={theme.colors.blue[6]} />
+                    <IconChevronDown size={16} className={classes.icon} />
                   </Center>
                 </a>
               </HoverCard.Target>
 
               <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                 <Group justify="space-between" px="md">
-                  <Text fw={500}>Features</Text>
+                  <Text fw={500}>Games</Text>
                   <Anchor href="#" fz="xs">
                     View all
                   </Anchor>
@@ -146,10 +146,7 @@ export function Header() {
               </HoverCard.Dropdown>
             </HoverCard>
             <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="#" className={classes.link}>
-              Academy
+              Support Us!
             </a>
           </Group>
 
@@ -184,17 +181,14 @@ export function Header() {
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
             <Center inline>
               <Box component="span" mr={5}>
-                Features
+                Games
               </Box>
-              <IconChevronDown size={16} color={theme.colors.blue[6]} />
+              <IconChevronDown size={16} className={classes.icon} />
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
           <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            Academy
+            Support Us!
           </a>
 
           <Divider my="sm" />
