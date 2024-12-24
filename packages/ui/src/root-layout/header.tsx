@@ -30,37 +30,13 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import classes from './header.module.css';
 import { Logo } from '../logo';
+import { ColorSchemeToggle } from '../color-scheme-toggle';
 
-const mockdata = [
+const games = [
   {
     icon: IconCode,
     title: 'Remnant 2',
     description: 'Build tools, item tracking, iten interactions, and more!'
-  },
-  {
-    icon: IconCoin,
-    title: 'Free for everyone',
-    description: 'The fluid of Smeargle’s tail secretions changes'
-  },
-  {
-    icon: IconBook,
-    title: 'Documentation',
-    description: 'Yanma is capable of seeing 360 degrees without'
-  },
-  {
-    icon: IconFingerprint,
-    title: 'Security',
-    description: 'The shell’s rounded shape and the grooves on its.'
-  },
-  {
-    icon: IconChartPie3,
-    title: 'Analytics',
-    description: 'This Pokémon uses its flying ability to quickly chase'
-  },
-  {
-    icon: IconNotification,
-    title: 'Notifications',
-    description: 'Combusken battles with the intensely hot flames it spews'
   }
 ];
 
@@ -70,7 +46,7 @@ export function Header() {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
 
-  const links = mockdata.map(item => (
+  const links = games.map(item => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
@@ -151,6 +127,7 @@ export function Header() {
           </Group>
 
           <Group visibleFrom="sm">
+            <ColorSchemeToggle />
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
@@ -193,7 +170,8 @@ export function Header() {
 
           <Divider my="sm" />
 
-          <Group justify="center" grow pb="xl" px="md">
+          <Group justify="center" pb="xl" px="md">
+            <ColorSchemeToggle />
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
