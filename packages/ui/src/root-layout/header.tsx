@@ -1,14 +1,6 @@
 'use client';
 
-import {
-  IconBook,
-  IconChartPie3,
-  IconChevronDown,
-  IconCode,
-  IconCoin,
-  IconFingerprint,
-  IconNotification
-} from '@tabler/icons-react';
+import { IconChevronDown } from '@tabler/icons-react';
 import {
   Anchor,
   Box,
@@ -31,12 +23,13 @@ import { useDisclosure } from '@mantine/hooks';
 import classes from './header.module.css';
 import { Logo } from '../logo';
 import { ColorSchemeToggle } from '../color-scheme-toggle';
+import { Remnant2Icon } from '../icons/remnant2';
 
 const games = [
   {
-    icon: IconCode,
+    icon: <Remnant2Icon width={22} height={22} />,
     title: 'Remnant 2',
-    description: 'Build tools, item tracking, iten interactions, and more!'
+    description: 'Build tools, item tracking, item interactions, and more!'
   }
 ];
 
@@ -50,7 +43,7 @@ export function Header() {
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
-          <item.icon size={22} color={theme.colors.blue[6]} />
+          {item.icon}
         </ThemeIcon>
         <div>
           <Text size="sm" fw={500}>
