@@ -2,6 +2,8 @@ import '@mantine/core/styles.css';
 import classes from './index.module.css';
 import '../themes/themes.css';
 
+import { ModalsProvider, type ModalsProviderProps } from '@mantine/modals';
+
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
 import { ThemeProvider } from './theme-provider';
 import { Header } from './header';
@@ -14,7 +16,13 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
-export function YGTRootLayout({ children }: { children: React.ReactNode }) {
+export function YGTRootLayout({
+  children,
+  modals
+}: {
+  children: React.ReactNode;
+  modals: ModalsProviderProps['modals'];
+}) {
   return (
     <html
       lang="en"
@@ -27,8 +35,10 @@ export function YGTRootLayout({ children }: { children: React.ReactNode }) {
       </head>
       <body className={clsx(classes.page, inter.className)}>
         <ThemeProvider>
-          <Header />
-          {children}
+          <ModalsProvider modals={modals}>
+            <Header />
+            {children}
+          </ModalsProvider>
         </ThemeProvider>
       </body>
     </html>

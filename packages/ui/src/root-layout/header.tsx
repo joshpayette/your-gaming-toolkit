@@ -1,7 +1,8 @@
 'use client';
 
-import { IconChevronDown } from '@tabler/icons-react';
+import { IconChevronDown, IconPalette } from '@tabler/icons-react';
 import {
+  ActionIcon,
   Anchor,
   Box,
   Burger,
@@ -14,16 +15,17 @@ import {
   HoverCard,
   ScrollArea,
   SimpleGrid,
+  Stack,
   Text,
   ThemeIcon,
-  UnstyledButton,
-  useMantineTheme
+  UnstyledButton
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './header.module.css';
 import { Logo } from '../logo';
 import { ColorSchemeToggle } from '../color-scheme-toggle';
 import { Remnant2Icon } from '../icons/remnant2';
+import { ThemeToggle } from '../theme-toggle';
 
 const games = [
   {
@@ -37,7 +39,6 @@ export function Header() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
-  const theme = useMantineTheme();
 
   const links = games.map(item => (
     <UnstyledButton className={classes.subLink} key={item.title}>
@@ -45,14 +46,14 @@ export function Header() {
         <ThemeIcon size={34} variant="default" radius="md">
           {item.icon}
         </ThemeIcon>
-        <div>
+        <Stack>
           <Text size="sm" fw={500}>
             {item.title}
           </Text>
           <Text size="xs" c="dimmed">
             {item.description}
           </Text>
-        </div>
+        </Stack>
       </Group>
     </UnstyledButton>
   ));
@@ -121,6 +122,7 @@ export function Header() {
 
           <Group visibleFrom="sm">
             <ColorSchemeToggle />
+            <ThemeToggle />
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
@@ -165,6 +167,7 @@ export function Header() {
 
           <Group justify="center" pb="xl" px="md">
             <ColorSchemeToggle />
+            <ThemeToggle />
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
