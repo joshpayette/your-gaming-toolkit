@@ -2,15 +2,15 @@
 
 import { IconPalette } from '@tabler/icons-react';
 import cx from 'clsx';
-import { ActionIcon, Button, Group, Modal, Select } from '@mantine/core';
+import { ActionIcon, Button, Group, Modal, Select, Stack } from '@mantine/core';
 import classes from './ThemeToggle.module.css';
-import { modals } from '@mantine/modals';
-import { setTheme, THEMES } from '../store/themeSlice';
+import { setTheme, setVariant, THEMES, VARIANTS } from '../store/themeSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { useDisclosure } from '@mantine/hooks';
 
 export function ThemeToggle() {
   const theme = useAppSelector(state => state.theme.theme);
+  const variant = useAppSelector(state => state.theme.variant);
   const dispatch = useAppDispatch();
 
   const [opened, { open, close }] = useDisclosure(false);
@@ -18,20 +18,33 @@ export function ThemeToggle() {
   return (
     <Group justify="center">
       <Modal opened={opened} onClose={close} title="Change theme" centered>
-        <Select
-          label="Color Theme"
-          placeholder="Pick value"
-          data={THEMES}
-          value={theme}
-          onChange={(value, option) => {
-            if (value) {
-              dispatch(setTheme(value));
-            }
-          }}
-        />
-        <Button fullWidth onClick={close} mt="md">
-          Close
-        </Button>
+        <Stack>
+          <Select
+            label="Variant"
+            placeholder="Pick value"
+            data={VARIANTS}
+            value={variant}
+            onChange={(value, _option) => {
+              if (value) {
+                dispatch(setVariant(value));
+              }
+            }}
+          />
+          <Select
+            label="Colors"
+            placeholder="Pick value"
+            data={THEMES}
+            value={theme}
+            onChange={(value, _option) => {
+              if (value) {
+                dispatch(setTheme(value));
+              }
+            }}
+          />
+          <Button fullWidth onClick={close} mt="md">
+            Close
+          </Button>
+        </Stack>
       </Modal>
       <ActionIcon
         variant="default"
