@@ -1,4 +1,3 @@
-import { log } from '@ygt/logger';
 import { type JSX } from 'react';
 
 export const metadata = {
@@ -6,7 +5,5 @@ export const metadata = {
 };
 
 export default function Store(): JSX.Element {
-  log('Hey! This is the Store page.');
-
   return <p>Page page page 23455</p>;
 }

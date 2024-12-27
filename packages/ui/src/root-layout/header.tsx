@@ -1,8 +1,7 @@
 'use client';
 
-import { IconChevronDown, IconPalette } from '@tabler/icons-react';
+import { IconChevronDown } from '@tabler/icons-react';
 import {
-  ActionIcon,
   Anchor,
   Box,
   Burger,
@@ -21,11 +20,11 @@ import {
   UnstyledButton
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import classes from './header.module.css';
-import { Logo } from '../logo';
-import { ColorSchemeToggle } from '../color-scheme-toggle';
-import { Remnant2Icon } from '../icons/remnant2';
-import { ThemeToggle } from '../theme-toggle';
+import classes from './Header.module.css';
+import { Logo } from '../logo/Logo';
+import { ColorSchemeToggle } from '../themes/ColorSchemeToggle';
+import { Remnant2Icon } from '../icons/Remnant2Icon';
+import { ThemeToggle } from '../themes/ThemeToggle';
 
 const games = [
   {

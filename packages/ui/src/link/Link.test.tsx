@@ -1,6 +1,6 @@
 import { describe, it } from "@jest/globals";
 import { createRoot } from "react-dom/client";
-import { Link } from ".";
+import { Link } from "./Link";
 
 describe("Link", () => {
   it("renders without crashing", () => {

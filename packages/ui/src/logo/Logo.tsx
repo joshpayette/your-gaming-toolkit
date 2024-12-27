@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { getImagePath } from '../utils/get-image-path';
-import classes from './index.module.css';
+import classes from './Logo.module.css';
 
 export function Logo({ width, height }: { width: number; height: number }) {
   return (
