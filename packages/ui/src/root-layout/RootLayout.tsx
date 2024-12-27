@@ -1,19 +1,19 @@
 import '@mantine/core/styles.css';
 import classes from './RootLayout.module.css';
-import '../themes/themes.css';
+import '../themes/colors/themes.css';
 
 import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
 import { Header } from './Header';
-import { Inter } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import cx from 'clsx';
 import StoreProvider from '../store/StoreProvider';
-import { ThemeProvider } from './ThemeProvider';
+import { ThemeProvider } from '../themes/ThemeProvider';
 import { ModalsProvider } from '@mantine/modals';
 
-const inter = Inter({
+const geist = Geist({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter'
+  variable: '--font-geist'
 });
 
 export function YGTRootLayout({ children }: { children: React.ReactNode }) {
@@ -26,7 +26,7 @@ export function YGTRootLayout({ children }: { children: React.ReactNode }) {
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
       </head>
-      <body className={cx(classes.page, inter.className)}>
+      <body className={cx(classes.page, geist.className)}>
         <StoreProvider>
           <ThemeProvider>
             <ModalsProvider>

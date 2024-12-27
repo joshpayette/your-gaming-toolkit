@@ -4,9 +4,10 @@ import { IconPalette } from '@tabler/icons-react';
 import cx from 'clsx';
 import { ActionIcon, Button, Group, Modal, Select, Stack } from '@mantine/core';
 import classes from './ThemeToggle.module.css';
-import { setTheme, setVariant, THEMES, VARIANTS } from '../store/themeSlice';
+import { setTheme, setVariant } from '../store/themeSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { useDisclosure } from '@mantine/hooks';
+import { THEMES, VARIANTS } from './colors/constants';
 
 export function ThemeToggle() {
   const theme = useAppSelector(state => state.theme.theme);

@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
-
-export const THEMES = ['cyan', 'purple'] as const;
-export const VARIANTS = ['shadcn', 'mantine'] as const;
+import type { THEMES, VARIANTS } from '../themes/colors/constants';
 
 export interface ThemeState {
   theme: (typeof THEMES)[number];

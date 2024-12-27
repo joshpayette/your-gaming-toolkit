@@ -15,7 +15,6 @@ import {
   Indicator,
   MantineColorsTuple,
   Mark,
-  Modal,
   NavLink,
   Pagination,
   Paper,
@@ -27,8 +26,7 @@ import {
   Switch,
   ThemeIcon,
   Timeline,
-  Tooltip,
-  type MantineThemeOverride
+  Tooltip
 } from '@mantine/core';
 
 const CONTAINER_SIZES: Record<string, string> = {
@@ -328,7 +326,7 @@ const pinkColors: MantineColorsTuple = [
   '#EC4899'
 ];
 
-export const shadcnTheme: MantineThemeOverride = createTheme({
+export const shadcnTheme = createTheme({
   colors: {
     slate: slateColors,
     gray: grayColors,
@@ -357,7 +355,7 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
     fuchsia: fuchsiaColors,
     pink: pinkColors,
 
-    primary: violetColors,
+    primary: indigoColors,
     secondary: grayColors,
     dark: grayColors,
 
@@ -372,7 +370,7 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   primaryShade: { light: 5, dark: 6 },
   autoContrast: true,
   luminanceThreshold: 0.3,
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'Geist',
   radius: {
     xs: rem('6px'),
     sm: rem('8px'),
@@ -413,7 +411,7 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
   },
 
   headings: {
-    fontFamily: 'Inter, sans-serif',
+    fontFamily: 'Geist',
     sizes: {
       h1: {
         fontSize: rem('36px'),
@@ -696,7 +694,7 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
           ['zinc', 'slate', 'gray', 'neutral', 'stone'].includes(
             theme.primaryColor
           );
-        const variant = props.variant ?? 'filled';
+        const variant = props.variant ?? 'light';
         return {
           root: {
             '--alert-color':
@@ -716,11 +714,6 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
     Dialog: Dialog.extend({
       defaultProps: {
         withBorder: true
-      }
-    }),
-    Modal: Modal.extend({
-      defaultProps: {
-        p: 'md'
       }
     }),
     Tooltip: Tooltip.extend({
@@ -745,7 +738,7 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
           ['zinc', 'slate', 'gray', 'neutral', 'stone'].includes(
             theme.primaryColor
           );
-        const variant = props.variant ?? 'filled';
+        const variant = props.variant ?? 'light';
         return {
           root: {
             '--avatar-bg':
@@ -753,19 +746,39 @@ export const shadcnTheme: MantineThemeOverride = createTheme({
                 ? colorKey
                   ? `var(--mantine-color-${colorKey}-filled)`
                   : 'var(--mantine-primary-color-filled)'
-                : undefined,
+                : variant === 'light'
+                  ? colorKey
+                    ? `var(--mantine-color-${colorKey}-light)`
+                    : 'var(--mantine-primary-color-light)'
+                  : undefined,
+
             '--avatar-color':
               variant === 'filled'
-                ? !props.color
-                  ? 'var(--mantine-primary-color-contrast)'
-                  : colorKey
-                    ? `var(--mantine-color-${colorKey}-contrast)`
-                    : undefined
-                : variant === 'white'
-                  ? isNeutralColor || isNeutralPrimaryColor
-                    ? `var(--mantine-color-black)`
-                    : undefined
-                  : undefined
+                ? colorKey
+                  ? `var(--mantine-color-${colorKey}-contrast)`
+                  : 'var(--mantine-primary-color-contrast)'
+                : variant === 'light'
+                  ? colorKey
+                    ? `var(--mantine-color-${colorKey}-light-color)`
+                    : 'var(--mantine-primary-color-light-color)'
+                  : variant === 'white'
+                    ? isNeutralColor || isNeutralPrimaryColor
+                      ? `var(--mantine-color-black)`
+                      : colorKey
+                        ? `var(--mantine-color-${colorKey}-outline)`
+                        : 'var(--mantine-primary-color-filled)'
+                    : variant === 'outline' || variant === 'transparent'
+                      ? colorKey
+                        ? `var(--mantine-color-${colorKey}-outline)`
+                        : 'var(--mantine-primary-color-filled)'
+                      : undefined,
+
+            '--avatar-bd':
+              variant === 'outline'
+                ? colorKey
+                  ? `1px solid var(--mantine-color-${colorKey}-outline)`
+                  : '1px solid var(--mantine-primary-color-filled)'
+                : undefined
           }
         };
       }
