@@ -1,5 +1,6 @@
-import { Button, Container, Text, Title } from '@mantine/core';
+import { Container, Text, Title } from '@mantine/core';
 import classes from './ComingSoon.module.css';
+import { Link } from '@ygt/ui/link';
 
 export function ComingSoon() {
   return (
@@ -24,9 +25,19 @@ export function ComingSoon() {
             </Title>
 
             <Text className={classes.description} mt={30}>
-              From the creator of Remnant 2 Toolkit, Your Gaming Toolkit is a
-              collection of tools for a variety of games. It is currently in
-              active development and will be available as soon as possible.
+              From the creator of Remnant 2 Toolkit, Your Gaming Toolkit is an
+              open-source collection of tools for a variety of games. It is
+              currently in active development and will be available as soon as
+              possible.
+            </Text>
+            <Text className={classes.description} mt={10}>
+              <Link
+                href="https://github.com/joshpayette/your-gaming-toolkit"
+                target="_blank"
+              >
+                Follow along on Github
+              </Link>{' '}
+              to see the progress and contribute to the project.
             </Text>
           </div>
         </div>
