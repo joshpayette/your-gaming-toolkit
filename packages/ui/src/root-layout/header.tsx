@@ -88,9 +88,9 @@ export function Header() {
               <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                 <Group justify="space-between" px="md">
                   <Text fw={500}>Games</Text>
-                  <Anchor href="#" fz="xs">
+                  {/* <Anchor href="#" fz="xs">
                     View all
-                  </Anchor>
+                  </Anchor> */}
                 </Group>
 
                 <Divider my="sm" />
@@ -103,10 +103,10 @@ export function Header() {
                   <Group justify="space-between">
                     <div>
                       <Text fw={500} fz="sm">
-                        Get started
+                        Getting started
                       </Text>
                       <Text size="xs" c="dimmed">
-                        Their food sources have decreased, and their numbers
+                        Not sure where to start? Check out our FAQ!
                       </Text>
                     </div>
                     <Button variant="default">Get started</Button>

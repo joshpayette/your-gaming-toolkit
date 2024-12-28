@@ -2,8 +2,6 @@
   height: 60px;
   padding-left: var(--mantine-spacing-md);
   padding-right: var(--mantine-spacing-md);
-  border-bottom: 1px solid
-    light-dark(var(--mantine-primary-color-3), var(--mantine-primary-color-9));
 }
 
 .link {
@@ -49,8 +47,8 @@
 
 .dropdownFooter {
   background-color: light-dark(
-    var(--mantine-color-gray-0),
-    var(--mantine-color-dark-7)
+    var(--mantine-color-gray-1),
+    var(--mantine-color-dark-8)
   );
   margin: calc(var(--mantine-spacing-md) * -1);
   margin-top: var(--mantine-spacing-sm);
