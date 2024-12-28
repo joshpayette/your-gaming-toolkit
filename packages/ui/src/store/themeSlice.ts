@@ -10,7 +10,7 @@ export interface ThemeState {
 // Read initial state from cookies
 const initialTheme = (Cookies.get('theme') as ThemeState['theme']) || 'purple';
 const initialVariant =
-  (Cookies.get('variant') as ThemeState['variant']) || 'mantine';
+  (Cookies.get('variant') as ThemeState['variant']) || 'shadcn';
 
 const initialState: ThemeState = {
   theme: initialTheme,
