@@ -16,6 +16,7 @@ import StoreProvider from '../store/StoreProvider';
 import { ThemeProvider } from '../themes/ThemeProvider';
 import { ModalsProvider } from '@mantine/modals';
 import { ComingSoonHeader } from './ComingSoonHeader';
+import { SessionProvider } from './SessionProvider';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -40,16 +41,18 @@ export function YGTRootLayout({
         />
       </head>
       <body className={cx(classes.page, geist.className)}>
-        <StoreProvider>
-          <ThemeProvider>
-            <ModalsProvider>
-              {showComingSoon ? <ComingSoonHeader /> : <Header />}
-              <main>
-                <Container size="xl">{children}</Container>
-              </main>
-            </ModalsProvider>
-          </ThemeProvider>
-        </StoreProvider>
+        <SessionProvider>
+          <StoreProvider>
+            <ThemeProvider>
+              <ModalsProvider>
+                {showComingSoon ? <ComingSoonHeader /> : <Header />}
+                <main>
+                  <Container size="xl">{children}</Container>
+                </main>
+              </ModalsProvider>
+            </ThemeProvider>
+          </StoreProvider>
+        </SessionProvider>
       </body>
     </html>
   );
