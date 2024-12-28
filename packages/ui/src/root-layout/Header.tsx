@@ -42,7 +42,6 @@ function LoginLogoutButton() {
       <Button variant="default" onClick={() => signIn()}>
         Log in
       </Button>
-      <Button onClick={() => signIn()}>Sign up</Button>
     </>
   );
 }
