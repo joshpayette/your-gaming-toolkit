@@ -141,7 +141,6 @@ export function Header() {
         padding="md"
         title="Navigation"
         hiddenFrom="sm"
-        zIndex={1000000}
       >
         <ScrollArea h="calc(100vh - 80px" mx="-md">
           <Divider my="sm" />
