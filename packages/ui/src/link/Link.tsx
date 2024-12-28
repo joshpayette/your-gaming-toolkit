@@ -1,4 +1,6 @@
+import { Anchor } from '@mantine/core';
 import type { AnchorHTMLAttributes, ReactNode, JSX } from 'react';
+import NextLink from 'next/link';
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
@@ -13,13 +15,14 @@ export function Link({
   ...other
 }: LinkProps): JSX.Element {
   return (
-    <a
+    <Anchor
+      component={NextLink}
       href={href}
       rel={newTab ? 'noreferrer' : undefined}
       target={newTab ? '_blank' : undefined}
       {...other}
     >
       {children}
-    </a>
+    </Anchor>
   );
 }
