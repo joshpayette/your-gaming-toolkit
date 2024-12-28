@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "db:migrate": "pnpm exec prisma migrate dev"
+    "db:migrate": "pnpm exec prisma migrate dev",
+    "db:generate": "prisma generate"
   },
   "exports": {
     ".": "./src/index.ts"

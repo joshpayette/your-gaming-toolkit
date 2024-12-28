@@ -15,9 +15,6 @@ import cx from 'clsx';
 import StoreProvider from '../store/StoreProvider';
 import { ThemeProvider } from '../themes/ThemeProvider';
 import { ModalsProvider } from '@mantine/modals';
-import { Logo } from '../logo/Logo';
-import { ThemeToggle } from '../themes/ThemeToggle';
-import { ColorSchemeToggle } from '../themes/ColorSchemeToggle';
 import { ComingSoonHeader } from './ComingSoonHeader';
 
 const geist = Geist({
