@@ -13,7 +13,11 @@
       "esnext"
     ],
     "incremental": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": ".", // Add this line
+    "paths": { // Add this section
+      "@/*": ["app/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
