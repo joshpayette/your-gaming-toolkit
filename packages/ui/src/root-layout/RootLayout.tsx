@@ -2,13 +2,23 @@ import '@mantine/core/styles.css';
 import classes from './RootLayout.module.css';
 import '../themes/colors/themes.css';
 
-import { ColorSchemeScript, mantineHtmlProps } from '@mantine/core';
+import {
+  Box,
+  ColorSchemeScript,
+  Container,
+  Group,
+  mantineHtmlProps
+} from '@mantine/core';
 import { Header } from './Header';
 import { Geist } from 'next/font/google';
 import cx from 'clsx';
 import StoreProvider from '../store/StoreProvider';
 import { ThemeProvider } from '../themes/ThemeProvider';
 import { ModalsProvider } from '@mantine/modals';
+import { Logo } from '../logo/Logo';
+import { ThemeToggle } from '../themes/ThemeToggle';
+import { ColorSchemeToggle } from '../themes/ColorSchemeToggle';
+import { ComingSoonHeader } from './ComingSoonHeader';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -16,7 +26,13 @@ const geist = Geist({
   variable: '--font-geist'
 });
 
-export function YGTRootLayout({ children }: { children: React.ReactNode }) {
+export function YGTRootLayout({
+  children,
+  showComingSoon
+}: {
+  children: React.ReactNode;
+  showComingSoon: boolean;
+}) {
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
@@ -30,8 +46,10 @@ export function YGTRootLayout({ children }: { children: React.ReactNode }) {
         <StoreProvider>
           <ThemeProvider>
             <ModalsProvider>
-              <Header />
-              {children}
+              {showComingSoon ? <ComingSoonHeader /> : <Header />}
+              <main>
+                <Container size="xl">{children}</Container>
+              </main>
             </ModalsProvider>
           </ThemeProvider>
         </StoreProvider>

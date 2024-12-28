@@ -1,15 +1,17 @@
 import '@mantine/core/styles.css';
 import { YGTRootLayout } from '@ygt/ui/root-layout';
+import { showComingSoon } from '@ygt/ui/flags';
 
 export const metadata = {
   title: 'My Mantine app',
   description: 'I have followed setup instructions carefully'
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
-  return <YGTRootLayout>{children}</YGTRootLayout>;
+  const comingSoon = await showComingSoon();
+  return <YGTRootLayout showComingSoon={comingSoon}>{children}</YGTRootLayout>;
 }

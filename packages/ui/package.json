@@ -5,7 +5,8 @@
   "exports": {
     "./link": "./src/link/Link.tsx",
     "./root-layout": "./src/root-layout/RootLayout.tsx",
-    "./color-scheme-toggle": "./src/themes/ColorSchemeToggle.tsx"
+    "./color-scheme-toggle": "./src/themes/ColorSchemeToggle.tsx",
+    "./flags": "./src/flags.ts"
   },
   "scripts": {
     "clean": "rm -rf dist",
@@ -40,6 +41,7 @@
     "@tiptap/pm": "^2.10.3",
     "@tiptap/react": "^2.10.3",
     "@tiptap/starter-kit": "^2.10.3",
+    "@vercel/flags": "^2.6.3",
     "@ygt/logger": "workspace:*",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
@@ -52,7 +54,8 @@
     "react-redux": "^9.2.0",
     "react-select": "^5.8.1",
     "react-toastify": "10.0.6",
-    "recharts": "2"
+    "recharts": "2",
+    "web": "^0.0.2"
   },
   "devDependencies": {
     "@asn.aeb/esbuild-css-modules-plugin": "^0.1.9",
