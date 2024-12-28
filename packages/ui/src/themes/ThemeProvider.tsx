@@ -23,11 +23,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         case 'indigo':
           themeModule = await import('./colors/indigo');
           break;
+        case 'orange':
+          themeModule = await import('./colors/orange');
+          break;
         case 'purple':
           themeModule = await import('./colors/purple');
           break;
         case 'red':
           themeModule = await import('./colors/red');
+          break;
+        case 'yellow':
+          themeModule = await import('./colors/yellow');
           break;
         case 'zinc':
           themeModule = await import('./colors/zinc');

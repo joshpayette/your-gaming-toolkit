@@ -17,7 +17,7 @@ export function ThemeToggle() {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
-    <Group justify="center">
+    <>
       <Modal opened={opened} onClose={close} title="Change theme" centered>
         <Stack>
           <Select
@@ -47,16 +47,24 @@ export function ThemeToggle() {
           </Button>
         </Stack>
       </Modal>
-      <ActionIcon
-        variant="default"
-        size="xl"
-        aria-label="Toggle color scheme"
-        className={classes.actionIcon}
-        onClick={open}
-      >
-        <IconPalette className={cx(classes.icon, classes.light)} stroke={1.5} />
-        <IconPalette className={cx(classes.icon, classes.dark)} stroke={1.5} />
-      </ActionIcon>
-    </Group>
+      <Group justify="center">
+        <ActionIcon
+          variant="default"
+          size="xl"
+          aria-label="Toggle color scheme"
+          className={classes.actionIcon}
+          onClick={open}
+        >
+          <IconPalette
+            className={cx(classes.icon, classes.light)}
+            stroke={1.5}
+          />
+          <IconPalette
+            className={cx(classes.icon, classes.dark)}
+            stroke={1.5}
+          />
+        </ActionIcon>
+      </Group>
+    </>
   );
 }
