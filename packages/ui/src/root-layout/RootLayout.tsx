@@ -9,7 +9,7 @@ import {
   Group,
   mantineHtmlProps
 } from '@mantine/core';
-import { Header } from './Header';
+import { Header } from './DummyHeader';
 import { Geist } from 'next/font/google';
 import cx from 'clsx';
 import StoreProvider from '../store/StoreProvider';
