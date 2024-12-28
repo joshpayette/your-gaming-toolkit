@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# * This is currently not used. Took this from Lee Robinson's repo on self-hosting NextJS.
+
 # Env Vars
 MYSQL_USER="myuser"
 MYSQL_PASSWORD=$(openssl rand -base64 12)
