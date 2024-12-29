@@ -25,6 +25,7 @@ import { ColorSchemeToggle } from './(features)/themes/ColorSchemeToggle';
 import { Remnant2Icon } from './(components)/icons/Remnant2Icon';
 import { ThemeToggle } from './(features)/themes/ThemeToggle';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 
 function LoginLogoutButton() {
   const { data: session } = useSession();
@@ -50,7 +51,8 @@ const games = [
   {
     icon: <Remnant2Icon width={22} height={22} />,
     title: 'Remnant 2',
-    description: 'Build tools, item tracking, item interactions, and more!'
+    description: 'Build tools, item tracking, item interactions, and more!',
+    path: '/remnant2'
   }
 ];
 
@@ -60,7 +62,11 @@ export function Header({ showComingSoon }: { showComingSoon?: boolean }) {
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
 
   const links = games.map(item => (
-    <UnstyledButton className={classes.subLink} key={item.title}>
+    <UnstyledButton
+      className={classes.subLink}
+      key={item.title}
+      onClick={() => redirect(item.path)}
+    >
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
           {item.icon}

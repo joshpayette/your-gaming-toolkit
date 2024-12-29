@@ -15,6 +15,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
+    "env": "vercel env pull .env",
     "check-types": "tsc --noEmit",
     "db:migrate": "pnpm exec prisma migrate dev",
     "db:generate": "prisma generate"
