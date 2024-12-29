@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev -p 3000 --turbopack",
-    "build": "pnpx prisma generate && next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
     "check-types": "tsc --noEmit",
