@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=18"
+  },
   "prisma": {
     "schema": "src/app/(features)/database/prisma/schema.prisma"
   },
   "scripts": {
     "dev": "next dev -p 3000 --turbopack",
-    "build": "npx prisma generate && next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
     "check-types": "tsc --noEmit",
