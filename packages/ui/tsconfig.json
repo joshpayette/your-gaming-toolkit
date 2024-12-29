@@ -1,9 +1,0 @@
-{
-  "extends": "@ygt/typescript-config/react-library.json",
-  "compilerOptions": {
-    "sourceMap": true,
-    "types": ["jest"]
-  },
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
-}

@@ -3,21 +3,10 @@ services:
     container_name: web
     build:
       context: .
-      dockerfile: ./apps/web/Dockerfile
+      dockerfile: ./Dockerfile
     restart: always
     ports:
       - 3000:3000
-    networks:
-      - ygt_network
-
-  remnant2toolkit:
-    container_name: remnant2toolkit
-    build:
-      context: .
-      dockerfile: ./apps/remnant2toolkit/Dockerfile
-    restart: always
-    ports:
-      - 3001:3001
     networks:
       - ygt_network
 
