@@ -26,6 +26,7 @@ import { Remnant2Icon } from './(components)/icons/Remnant2Icon';
 import { ThemeToggle } from './(features)/themes/ThemeToggle';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
+import { Link } from '@/app/(components)/link/Link';
 
 function LoginLogoutButton() {
   const { data: session } = useSession();
@@ -151,7 +152,9 @@ export function Header({ showComingSoon }: { showComingSoon?: boolean }) {
                         Not sure where to start? Check out our FAQ!
                       </Text>
                     </div>
-                    <Button variant="default">Get started</Button>
+                    <Button variant="default" component={Link} href="/faq">
+                      Get started
+                    </Button>
                   </Group>
                 </div>
               </HoverCard.Dropdown>

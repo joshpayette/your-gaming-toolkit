@@ -1,6 +1,7 @@
 import cx from 'clsx';
 import { Button, Container, Overlay, Text, Title } from '@mantine/core';
 import classes from './Hero.module.css';
+import { Link } from '@/app/(components)/link/Link';
 
 export function HeroContainer() {
   return (
@@ -23,7 +24,13 @@ export function HeroContainer() {
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} variant="filled" size="lg">
+          <Button
+            className={classes.control}
+            variant="filled"
+            size="lg"
+            component={Link}
+            href="/faq"
+          >
             Get started
           </Button>
           <Button

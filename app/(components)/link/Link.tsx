@@ -1,3 +1,5 @@
+'use client';
+
 import { Anchor } from '@mantine/core';
 import type { AnchorHTMLAttributes, ReactNode, JSX } from 'react';
 import NextLink from 'next/link';
