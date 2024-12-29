@@ -1,4 +1,5 @@
 import { ComingSoon } from '@/ComingSoon';
+import { HeroContainer } from '@/HeroContainer';
 import { showComingSoon } from '@ygt/ui/flags';
 
 export const metadata = {
@@ -12,5 +13,9 @@ export default async function Page() {
     return <ComingSoon />;
   }
 
-  return <p>Page page page 23455</p>;
+  return (
+    <>
+      <HeroContainer />
+    </>
+  );
 }

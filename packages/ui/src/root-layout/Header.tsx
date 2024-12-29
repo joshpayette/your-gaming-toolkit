@@ -2,7 +2,6 @@
 
 import { IconChevronDown } from '@tabler/icons-react';
 import {
-  Anchor,
   Box,
   Burger,
   Button,
@@ -25,6 +24,27 @@ import { Logo } from '../logo/Logo';
 import { ColorSchemeToggle } from '../themes/ColorSchemeToggle';
 import { Remnant2Icon } from '../icons/Remnant2Icon';
 import { ThemeToggle } from '../themes/ThemeToggle';
+import { signIn, signOut, useSession } from 'next-auth/react';
+
+function LoginLogoutButton() {
+  const { data: session } = useSession();
+
+  if (session) {
+    return (
+      <Button variant="default" onClick={() => signOut()}>
+        Sign Out
+      </Button>
+    );
+  }
+
+  return (
+    <>
+      <Button variant="default" onClick={() => signIn()}>
+        Log in
+      </Button>
+    </>
+  );
+}
 
 const games = [
   {
@@ -122,8 +142,7 @@ export function Header() {
           <Group visibleFrom="sm">
             <ColorSchemeToggle />
             <ThemeToggle />
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <LoginLogoutButton />
           </Group>
 
           <Burger
@@ -166,8 +185,7 @@ export function Header() {
           <Group justify="center" pb="xl" px="md">
             <ColorSchemeToggle />
             <ThemeToggle />
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
+            <LoginLogoutButton />
           </Group>
         </ScrollArea>
       </Drawer>

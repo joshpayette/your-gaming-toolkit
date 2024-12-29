@@ -28,6 +28,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Discord,
     Resend({
+      apiKey: process.env.AUTH_RESEND_KEY,
       from: 'no-reply@yourgamingtoolkit.com'
     })
   ]

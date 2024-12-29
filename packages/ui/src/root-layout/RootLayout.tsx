@@ -16,6 +16,8 @@ import StoreProvider from '../store/StoreProvider';
 import { ThemeProvider } from '../themes/ThemeProvider';
 import { ModalsProvider } from '@mantine/modals';
 import { ComingSoonHeader } from './ComingSoonHeader';
+import { SessionProvider } from './SessionProvider';
+import Script from 'next/script';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -40,16 +42,23 @@ export function YGTRootLayout({
         />
       </head>
       <body className={cx(classes.page, geist.className)}>
-        <StoreProvider>
-          <ThemeProvider>
-            <ModalsProvider>
-              {showComingSoon ? <ComingSoonHeader /> : <Header />}
-              <main>
-                <Container size="xl">{children}</Container>
-              </main>
-            </ModalsProvider>
-          </ThemeProvider>
-        </StoreProvider>
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="3a31a0b8-45aa-4eef-823f-13ed62943420"
+        />
+        <SessionProvider>
+          <StoreProvider>
+            <ThemeProvider>
+              <ModalsProvider>
+                {showComingSoon ? <ComingSoonHeader /> : <Header />}
+                <main>
+                  <Container size="xl">{children}</Container>
+                </main>
+              </ModalsProvider>
+            </ThemeProvider>
+          </StoreProvider>
+        </SessionProvider>
       </body>
     </html>
   );
