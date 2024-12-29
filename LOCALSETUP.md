@@ -4,7 +4,7 @@
 
 - [Node.js](https://nodejs.org/en/download/)
 - [pnpm](https://pnpm.io/installation)
-- [Turbo CLI](https://www.npmjs.com/package/turbo-cli)
+- [VSCode](https://code.visualstudio.com/download) (recommended) or another code editor
 
 ## If you don't have MySQL installed locally...
 - [Docker](https://docs.docker.com/get-docker/)
@@ -36,9 +36,6 @@ In a terminal, run the following commands:
 # Start the database container
 docker-compose -f docker-compose.yml up -d mysql
 
-# Start the apps in development mode
-turbo dev
-
-# Or for a specific app...
-turbo dev --filter web
+# Start the app in development mode
+pnpm dev
 ```
