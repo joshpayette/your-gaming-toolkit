@@ -8,10 +8,9 @@
   },
   "scripts": {
     "dev": "next dev -p 3000 --turbopack",
-    "build": "next build",
+    "build": "pnpx prisma generate && next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
-    "postinstall": "prisma generate",
     "check-types": "tsc --noEmit",
     "db:migrate": "pnpm exec prisma migrate dev",
     "db:generate": "prisma generate"
