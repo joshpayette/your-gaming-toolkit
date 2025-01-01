@@ -1,4 +1,10 @@
-export const logger = (...args: unknown[]): void => {
-  // eslint-disable-next-line no-console -- logger
-  console.log('LOGGER: ', ...args);
-};
+import pino from 'pino';
+
+export const logger = pino({
+  transport: {
+    target: 'pino-pretty',
+    options: {
+      colorize: true
+    }
+  }
+});
