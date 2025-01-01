@@ -2,7 +2,7 @@ import NextAuth, { type DefaultSession } from 'next-auth';
 import Discord from 'next-auth/providers/discord';
 import Resend from 'next-auth/providers/resend';
 import { PrismaAdapter } from '@auth/prisma-adapter';
-import { prisma } from '@/app/(features)/database';
+import { prisma, type Role } from '@/app/(features)/database';
 
 declare module 'next-auth' {
   /**
@@ -11,11 +11,10 @@ declare module 'next-auth' {
   interface Session {
     user: {
       id: string;
-      displayName: string;
       bio: string;
       avatarId: string;
       image: string;
-      role: string;
+      role: Role;
       /**
        * By default, TypeScript merges new interface properties and overwrites existing ones.
        * In this case, the default session user properties will be overwritten,
@@ -37,6 +36,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   callbacks: {
     async session({ session, user }) {
+      // Prisma's upsert can behave like FindOrCreate if you pass an empty
+      // object to the update field. This will create a new UserProfile if
+      // one doesn't exist for the user, or fetch the existing one.
       const userProfile = await prisma.userProfile.upsert({
         where: {
           userId: user.id
@@ -57,7 +59,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       session.user = {
         ...session.user,
         id: user.id,
-        displayName: userProfile.displayName,
+        // Override the OAUTH provider's name with the user's display name
+        name: userProfile.displayName,
+        // Other UserProfile fields that should be available on the session.user object
         bio: userProfile.bio,
         avatarId: userProfile.avatarId,
         image: userProfile.image ?? ''

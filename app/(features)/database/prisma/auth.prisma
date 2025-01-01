@@ -1,23 +1,26 @@
 model User {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  username      String?         @unique
-  email         String?         @unique
+  username      String?   @unique
+  email         String?   @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   sessions      Session[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   // Optional for WebAuthn support
   Authenticator Authenticator[]
 
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  // YGT additions
   UserProfile UserProfile?
+  role        Role         @default(USER)
 }
 
 model Account {
   id                       String  @id @default(cuid())
-  userId                   String  @unique
   type                     String
   provider                 String
   providerAccountId        String
@@ -29,10 +32,12 @@ model Account {
   id_token                 String? @db.Text
   session_state            String?
   refresh_token_expires_in Int?
-  user                     User?   @relation(fields: [userId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  user   User?  @relation(fields: [userId], references: [id])
+  userId String @unique
 
   @@unique([provider, providerAccountId])
   @@index([userId])
@@ -41,12 +46,13 @@ model Account {
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
-  userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 
   @@index([userId])
 }
@@ -62,7 +68,6 @@ model VerificationToken {
 // Optional for WebAuthn support
 model Authenticator {
   credentialID         String  @unique
-  userId               String
   providerAccountId    String
   credentialPublicKey  String
   counter              Int
@@ -70,7 +75,14 @@ model Authenticator {
   credentialBackedUp   Boolean
   transports           String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
 
   @@id([userId, credentialID])
+}
+
+enum Role {
+  USER
+  ADMIN
+  SUPERADMIN
 }

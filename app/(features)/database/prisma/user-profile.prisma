@@ -3,12 +3,12 @@ model UserProfile {
   user        User   @relation(fields: [userId], references: [id])
   userId      String
   displayName String @default("Traveler")
-  bio         String
+  bio         String @db.VarChar(255)
 
   // Avatars are available to all users
-  avatarId String
+  avatarId String  @db.VarChar(7)
   // Special users will be able to specify an image
-  image    String?
+  image    String? @db.VarChar(255)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
