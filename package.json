@@ -8,7 +8,7 @@
     "node": ">=20"
   },
   "prisma": {
-    "schema": "app/(features)/database/prisma/schema.prisma"
+    "schema": "app/(features)/database/prisma"
   },
   "scripts": {
     "dev": "next dev -p 3000 --turbopack",

@@ -1,0 +1,17 @@
+model UserProfile {
+  id          Int    @id @default(autoincrement())
+  user        User   @relation(fields: [userId], references: [id])
+  userId      String
+  displayName String @default("Traveler")
+  bio         String
+
+  // Avatars are available to all users
+  avatarId String
+  // Special users will be able to specify an image
+  image    String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId])
+}
