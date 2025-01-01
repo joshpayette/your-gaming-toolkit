@@ -16,6 +16,7 @@
   line-height: 1rem;
   font-size: var(--mantine-font-size-md);
   font-weight: 900;
+  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
 }
 
 .accentText {

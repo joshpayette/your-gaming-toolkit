@@ -20,53 +20,20 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Header.module.css';
-import { Logo } from './(components)/Logo';
-import { ColorSchemeToggle } from './(features)/themes/ColorSchemeToggle';
-import { Remnant2Icon } from './(components)/icons/Remnant2Icon';
-import { ThemeToggle } from './(features)/themes/ThemeToggle';
-import { signIn, signOut, useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { Link } from '@/app/(components)/Link';
-
-function LoginLogoutButton() {
-  const { data: session, status } = useSession();
-
-  if (status === 'loading') {
-    return (
-      <Button variant="default" loading={true}>
-        &nbsp;
-      </Button>
-    );
-  }
-
-  if (status === 'unauthenticated' || !session) {
-    return (
-      <Button variant="default" onClick={() => signIn()}>
-        Log in
-      </Button>
-    );
-  }
-
-  return (
-    <Button variant="default" onClick={() => signOut()}>
-      Sign Out
-    </Button>
-  );
-}
-
-const games = [
-  {
-    icon: <Remnant2Icon width={22} height={22} />,
-    title: 'Remnant 2',
-    description: 'Build tools, item tracking, item interactions, and more!',
-    path: '/remnant2'
-  }
-];
+import { LoginLogoutButton } from '@/app/(components)/home/LoginLogoutButton';
+import { CONFIG } from '@/app/app-config';
+import { ColorSchemeToggle } from '@/app/(features)/themes/ColorSchemeToggle';
+import { ThemeToggle } from '@/app/(features)/themes/ThemeToggle';
+import { Logo } from '@/app/(components)/Logo';
 
 export function Header({ showComingSoon }: { showComingSoon?: boolean }) {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+
+  const { games } = CONFIG;
 
   const links = games.map(item => (
     <UnstyledButton
@@ -158,7 +125,12 @@ export function Header({ showComingSoon }: { showComingSoon?: boolean }) {
                         Not sure where to start? Check out our FAQ!
                       </Text>
                     </div>
-                    <Button variant="default" component={Link} href="/faq">
+                    <Button
+                      variant="default"
+                      component={Link}
+                      href="/faq"
+                      underline="never"
+                    >
                       Get started
                     </Button>
                   </Group>

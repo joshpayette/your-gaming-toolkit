@@ -7,8 +7,8 @@ import { Geist } from 'next/font/google';
 import cx from 'clsx';
 import Script from 'next/script';
 import { showComingSoon } from '@/app/flags';
-import { Providers } from '@/app/Providers';
-import { Header } from '@/app/Header';
+import { Providers } from '@/app/(components)/home/Providers';
+import { Header } from '@/app/(components)/home/Header';
 
 const geist = Geist({
   subsets: ['latin'],

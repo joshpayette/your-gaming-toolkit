@@ -1,10 +1,10 @@
 'use client';
 
-import { Anchor } from '@mantine/core';
-import type { AnchorHTMLAttributes, ReactNode, JSX } from 'react';
+import { Anchor, type AnchorProps } from '@mantine/core';
+import type { ReactNode, JSX } from 'react';
 import NextLink from 'next/link';
 
-interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface LinkProps extends AnchorProps {
   children: ReactNode;
   newTab?: boolean;
   href: string;

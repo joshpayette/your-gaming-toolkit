@@ -1,6 +1,6 @@
-import { ComingSoon } from '@/app/HeroComingSoon';
+import { ComingSoon } from '@/app/(components)/home/HeroComingSoon';
 import { showComingSoon } from '@/app/flags';
-import { HeroContainer } from '@/app/Hero';
+import { HeroContainer } from '@/app/(components)/home/Hero';
 
 export const metadata = {
   title: 'Coming Soon! - Your Gaming Toolkit'

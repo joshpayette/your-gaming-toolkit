@@ -1,6 +1,6 @@
 'use client';
 
-import { Accordion, Container, Grid, Title } from '@mantine/core';
+import { Accordion, Center, Container, Grid, Text, Title } from '@mantine/core';
 import classes from './FAQContent.module.css';
 import Image from 'next/image';
 import { getImagePath } from '@/app/(lib)/get-image-path';
@@ -9,6 +9,20 @@ const placeholder =
   'It can’t help but hear a pin drop from over half a mile away, so it lives deep in the mountains where there aren’t many people or Pokémon.';
 
 export function FAQContent() {
+  const faqReady = false;
+
+  if (!faqReady) {
+    return (
+      <Container size="xl">
+        <Center>
+          <Text size="xl" fw={700}>
+            Coming Soon
+          </Text>
+        </Center>
+      </Container>
+    );
+  }
+
   return (
     <div className={classes.wrapper}>
       <Container size="xl">
