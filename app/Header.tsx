@@ -29,22 +29,28 @@ import { redirect } from 'next/navigation';
 import { Link } from '@/app/(components)/link/Link';
 
 function LoginLogoutButton() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
-  if (session) {
+  if (status === 'loading') {
     return (
-      <Button variant="default" onClick={() => signOut()}>
-        Sign Out
+      <Button variant="default" loading={true}>
+        &nbsp;
+      </Button>
+    );
+  }
+
+  if (status === 'unauthenticated' || !session) {
+    return (
+      <Button variant="default" onClick={() => signIn()}>
+        Log in
       </Button>
     );
   }
 
   return (
-    <>
-      <Button variant="default" onClick={() => signIn()}>
-        Log in
-      </Button>
-    </>
+    <Button variant="default" onClick={() => signOut()}>
+      Sign Out
+    </Button>
   );
 }
 
