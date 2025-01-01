@@ -1,6 +1,6 @@
 import { Container, Text, Title } from '@mantine/core';
 import classes from './HeroComingSoon.module.css';
-import { Link } from '@/app/(components)/link/Link';
+import { Link } from '@/app/(components)/Link';
 
 export function ComingSoon() {
   return (

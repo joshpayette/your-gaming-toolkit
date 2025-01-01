@@ -20,13 +20,13 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Header.module.css';
-import { Logo } from './(components)/logo/Logo';
+import { Logo } from './(components)/Logo';
 import { ColorSchemeToggle } from './(features)/themes/ColorSchemeToggle';
 import { Remnant2Icon } from './(components)/icons/Remnant2Icon';
 import { ThemeToggle } from './(features)/themes/ThemeToggle';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
-import { Link } from '@/app/(components)/link/Link';
+import { Link } from '@/app/(components)/Link';
 
 function LoginLogoutButton() {
   const { data: session, status } = useSession();
