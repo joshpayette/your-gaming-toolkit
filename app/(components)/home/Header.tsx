@@ -23,34 +23,34 @@ import classes from './Header.module.css';
 import { redirect } from 'next/navigation';
 import { Link } from '@/app/(components)/Link';
 import { LoginLogoutButton } from '@/app/(components)/home/LoginLogoutButton';
-import { CONFIG } from '@/app/app-config';
 import { ColorSchemeToggle } from '@/app/(features)/themes/ColorSchemeToggle';
 import { ThemeToggle } from '@/app/(features)/themes/ThemeToggle';
 import { Logo } from '@/app/(components)/Logo';
+import { APP_CONFIG } from '@/app/types';
 
 export function Header({ showComingSoon }: { showComingSoon?: boolean }) {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
 
-  const { games } = CONFIG;
+  const { games } = APP_CONFIG;
 
-  const links = games.map(item => (
+  const links = Object.entries(games).map(([_key, game]) => (
     <UnstyledButton
       className={classes.subLink}
-      key={item.title}
-      onClick={() => redirect(item.path)}
+      key={game.name}
+      onClick={() => redirect(game.path)}
     >
       <Group wrap="nowrap" align="flex-start">
         <ThemeIcon size={34} variant="default" radius="md">
-          {item.icon}
+          {game.icon}
         </ThemeIcon>
         <Stack>
           <Text size="sm" fw={500}>
-            {item.title}
+            {game.name}
           </Text>
           <Text size="xs" c="dimmed">
-            {item.description}
+            {game.description}
           </Text>
         </Stack>
       </Group>
